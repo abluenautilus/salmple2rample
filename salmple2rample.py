@@ -31,7 +31,7 @@ for i,bank in enumerate(banks):
     samplefolders = os.listdir(fullbankpath)
     samplefolders.sort()
     numsamplefolders = len(samplefolders)
-    outbankpath = "%s/%s" % (outputfolder,bank)
+    outbankpath = "%s/A%d" % (outputfolder,i)
     if not os.path.exists(outbankpath):
         os.mkdir(outbankpath)
 
@@ -39,7 +39,7 @@ for i,bank in enumerate(banks):
         fullfolderpath = "%s/%d" % (fullbankpath,x)
         samples = os.listdir(fullfolderpath)
         samplepath = "%s/%s" % (fullfolderpath,samples[0])
-        outputpath = "%s/%s/%d_%s" % (outputfolder,bank,x,samples[0])
+        outputpath = "%s/A%d/%d_%s" % (outputfolder,i,x,samples[0])
         print("Will copy %s to %s" % (samplepath, outputpath))
         shutil.copy(samplepath,outputpath)
         
